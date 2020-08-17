@@ -17,7 +17,7 @@ class App extends Component {
     selectedOption: ""
   }
   componentDidMount() {
-    axios.get(`http://localhost:8080/questions`)
+    axios.get(`https://react-appquiz.herokuapp.com/questions`)
       .then(ques => {
         const que = ques.data;
         const len = que.length;
@@ -38,7 +38,7 @@ class App extends Component {
   }
   nextHandler = () => {
     let { cur, marks } = this.state;
-    axios.get(`http://localhost:8080/answer/${this.state.cur +1}`)
+    axios.get(`https://react-appquiz.herokuapp.com/answer/${this.state.cur +1}`)
     .then(ans =>{
       if(ans.data.answer === this.state.selectedOption){
         // console.log("Correct !!!!");
